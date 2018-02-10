@@ -1,6 +1,6 @@
 /**
  * Created by albertacedosanchez on 18/1/17.
- * Updated by Germán Mendoza many several times :D
+ * Updated by Germán Mendoza sooooo many several times :D
  */
 
 //------------------------------------------------------
@@ -280,98 +280,215 @@ var translator = {
 
 //------------------------------------------------------
 
+appHelper = {
+	collection : "mainCollection",
+	getEmptyGeoJson: function(){
+		return {
+			type: "FeatureCollection",
+			features: []
+		};
+	},
+	obtainCE: function (doc) {
+		var geoJson = appHelper.getEmptyGeoJson();
+		var areas = doc.CE.areas;
+		for (var i = 0; i < areas.length; i++) {
+			var other = JSON.parse(areas[i].layer);
+			geoJson.features = geoJson.features.concat(other.features);
+		}
+		return geoJson;
+	},
+	obtainSC: function (doc) {
+		var geoJson = appHelper.getEmptyGeoJson();
+		var groups = doc.SC.groups;
+		for (var j = 0; j < groups.length; j++) {
+			var areas = groups[j].areas;
+			for (var i = 0; i < areas.length; i++) {
+				var other = JSON.parse(areas[i].layer);
+				geoJson.features = geoJson.features.concat(other.features);
+			}
+		}
+		return geoJson;
+	},
+	obtainSOP: function (doc) {
+		var geoJson = appHelper.getEmptyGeoJson();
+		var areas = doc.SOP.areas;
+		for (var i = 0; i < areas.length; i++) {
+			var other = JSON.parse(areas[i].layer);
+			geoJson.features = geoJson.features.concat(other.features);
+		}
+		return geoJson;
+	}
+};
+
 app = {
     setHome: function (data, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.home,
-            data,
-            callback
-        );
+			  db.collection(appHelper.collection).add(data)
+				.then(function(docRef) {
+					callback(docRef);
+				})
+				.catch(function(error) {
+					callback(false);
+				});
     },
-    getHome: function () {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.home2,
-            function (response) {
-                alert(response);
-            }
-        );
-    },
+    // getHome: function () {
+    //     uiCoreAPI._getRequest(
+    //         uiCoreAPI.instanceUrl + uiCoreWS.home2,
+    //         function (response) {
+    //             alert(response);
+    //         }
+    //     );
+    // },
     setSOP: function (id, data2, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SOP + id,
-            data2,
-            callback
-        );
+        data2.areas.forEach(function (value) {
+            value.layer = JSON.stringify(value.layer);
+        });
+
+        var updRef = db.collection(appHelper.collection).doc(id);
+			  updRef.update({
+            SOP: data2
+        })
+        .then(function() {
+            callback({id:id});
+        })
+        .catch(function(error) {
+            callback(false);
+        });
     },
     setSC: function (id, data2, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SC + id,
-            data2,
-            callback
-        );
+				data2.groups.forEach(function (value) {
+					value.areas.forEach(function (value2) {
+						value2.layer = JSON.stringify(value2.layer);
+					});
+				});
+        var updRef = db.collection(appHelper.collection).doc(id);
+				updRef.update({
+            SC: data2
+        })
+        .then(function() {
+          callback({id:id});
+        })
+        .catch(function(error) {
+          callback(false);
+        });
     },
     setCE: function (id, data, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.CE + id,
-            data,
-            callback
-        );
-    },
-    getSOP: function (id, callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SOP + id,
-            callback
-        );
-    },
-    getSC: function (id, callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SC + id,
-            callback
-        );
-    },
-    getCE: function (id, callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.CE + id,
-            callback
-        );
+				data.areas.forEach(function (value) {
+					value.layer = JSON.stringify(value.layer);
+				});
+        var updRef = db.collection(appHelper.collection).doc(id);
+				updRef.update({
+					CE: data
+        })
+        .then(function() {
+          callback({id:id});
+        })
+        .catch(function(error) {
+          callback(false);
+        });
+    }, getSOP: function (id, callback) {
+			var sopRef = db.collection(appHelper.collection).doc(id);
+			sopRef.get().then(function(doc) {
+				if (doc.exists) {
+					var geoJson = appHelper.obtainSOP(doc.data());
+					callback({geoJson:geoJson, id:id});
+				} else {
+					callback(false);
+				}
+			}).catch(function(error) {
+				callback(false);
+			});
+    }, getSC: function (id, callback) {
+			var scRef = db.collection(appHelper.collection).doc(id);
+			scRef.get().then(function(doc) {
+				if (doc.exists) {
+					var geoJson = appHelper.obtainSC(doc.data());
+					callback({geoJson:geoJson, id:id});
+				} else {
+					callback(false);
+				}
+			}).catch(function(error) {
+				callback(false);
+			});
+    }, getCE: function (id, callback) {
+				var ceRef = db.collection(appHelper.collection).doc(id);
+				ceRef.get().then(function(doc) {
+				if (doc.exists) {
+					var geoJson = appHelper.obtainCE(doc.data());
+					callback({geoJson:geoJson, id:id});
+				} else {
+					callback(false);
+				}
+			}).catch(function(error) {
+				callback(false);
+			});
     },
     finish: function (id, data, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.finish + id,
-            data,
-            callback
-        );
+				var updRef = db.collection(appHelper.collection).doc(id);
+				updRef.update(data)
+				.then(function() {
+					callback({id:id});
+				})
+				.catch(function(error) {
+					callback(false);
+				});
     },
     finishA: function (id, data, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.globalEnd + id,
-            data,
-            callback
-        );
+				var updRef = db.collection(appHelper.collection).doc(id);
+				updRef.update(data)
+				.then(function() {
+					callback({id:id});
+				})
+				.catch(function(error) {
+					callback(false);
+				});
     },
     comments: function (id, data, callback) {
-        uiCoreAPI._postRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.comments + id,
-            data,
-            callback
-        );
+				var updRef = db.collection(appHelper.collection).doc(id);
+				updRef.update(data)
+				.then(function() {
+					callback({id:id});
+				})
+				.catch(function(error) {
+					callback(false);
+				});
     },
     getSOPA: function (callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SOP,
-            callback
-        );
+			var geoJson = appHelper.getEmptyGeoJson();
+			db.collection(appHelper.collection).get().then(function(docs) {
+				docs.forEach(function(doc) {
+					var data = doc.data();
+					if (data.SOP){
+						var singled = appHelper.obtainSOP(data);
+						geoJson.features = geoJson.features.concat(singled.features);
+					}
+				});
+				callback({geoJson:geoJson, id:id});
+			});
     },
     getSCA: function (callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.SC,
-            callback
-        );
+			var geoJson = appHelper.getEmptyGeoJson();
+			db.collection(appHelper.collection).get().then(function(docs) {
+				docs.forEach(function(doc) {
+					var data = doc.data();
+					if (data.SC){
+						var singled = appHelper.obtainSC(data);
+						geoJson.features = geoJson.features.concat(singled.features);
+					}
+				});
+				callback({geoJson:geoJson, id:id});
+			});
     },
     getCEA: function (callback) {
-        uiCoreAPI._getRequest(
-            uiCoreAPI.instanceUrl + uiCoreWS.CE,
-            callback
-        );
+			var geoJson = appHelper.getEmptyGeoJson();
+			db.collection(appHelper.collection).get().then(function(docs) {
+				docs.forEach(function(doc) {
+					var data = doc.data();
+					if (data.CE){
+						var singled = appHelper.obtainCE(data);
+						geoJson.features = geoJson.features.concat(singled.features);
+					}
+				});
+				callback({geoJson:geoJson, id:id});
+			});
     }
 };

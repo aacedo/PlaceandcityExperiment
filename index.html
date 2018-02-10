@@ -605,7 +605,11 @@
 
 <script src="js/API/lib.js"></script>
 
-<script src="data/zipCodes.js"></script>
+<script src="data/zipCodes.js"></script>ç
+
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
 
 <!--<script src="js/API/util.js"></script>
 <script src="js/API/constants.js"></script>
@@ -617,6 +621,12 @@
 
     $(document).ready(function () {
 
+			firebase.initializeApp({
+				apiKey: "AIzaSyBwgs-qsN_KmDtp2VeI6dhSoylkzJaexcM",
+				authDomain: "experiment-9e514.firebaseapp.com",
+				projectId: "experiment-9e514"
+			});
+			db = firebase.firestore();
 
         startall();
 
