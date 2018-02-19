@@ -372,9 +372,11 @@ app = {
         });
     },
     setCE: function (id, data, callback) {
-				data.areas.forEach(function (value) {
-					value.layer = JSON.stringify(value.layer);
-				});
+				if (data.areas) {
+					data.areas.forEach(function (value) {
+						value.layer = JSON.stringify(value.layer);
+					});
+				}
         var updRef = db.collection(appHelper.collection).doc(id);
 				updRef.update({
 					CE: data
