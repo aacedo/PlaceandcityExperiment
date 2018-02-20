@@ -32,6 +32,12 @@
 	width: auto;
 	height: 100px;
 }
+#logo_place{
+	width: 80px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
 #logo_camara{
 	width: 70px;
 	margin-bottom: 20px;

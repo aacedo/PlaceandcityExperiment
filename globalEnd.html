@@ -28,10 +28,12 @@
     <link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
     <link href="css/leaflet.css" rel="stylesheet" type="text/css"/>
     <link href="css/leaflet.draw.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet-search.css" rel="stylesheet" type="text/css"/>
+    <link href="css/leaflet-search.mobile.css" rel="stylesheet" type="text/css"/>
 
-    <script src="https://apis.google.com/js/platform.js" async defer>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer>
         {lang: 'pt-PT'}
-    </script>
+    </script> -->
 
 </head>
 
@@ -40,11 +42,11 @@
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 0px">
     <div class="container-fluid">
         <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-lg visible-md visible-sm">
-            <img src="img/logo_engaging.svg" class="logo_phd">Place and City
+            <img src="img/Place and City logo.png" class="logo_phd">
         </div>
         <!--  Visible only xs  -->
         <div class="navbar-header name_navbar col-xs-4 col-sm-5 col-md-5 col-lg-5 visible-xs">
-            <img src="img/logo_engaging.svg" class="logo_phd">
+            <img src="img/Place and City logo.png" class="logo_phd">
         </div>
     </div>
 </nav>
@@ -174,12 +176,15 @@
                     <div class="no-float"></div>
                     <!--  Social media  -->
                     <div style="margin-bottom: 15px; margin-top: 30px; text-align: center;">
+                        
                         <!--  Facebook  -->
-                        <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fplaceandcity.com%2Fengagingeographies%2F&layout=button&size=small&mobile_iframe=true&appId=1255866227829550&width=81&height=20" width="90" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> 
+                        <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fplaceandcity.com&layout=button&size=small&mobile_iframe=true&appId=1255866227829550&width=81&height=20" width="90" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
                         <!--  Twitter  -->
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://placeandcity.com/engagingeographies/" data-lang="pt"><span langkey="global5">Tweetar</span></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://placeandcity.com/" data-lang="pt"><span langkey="global5">Tweetar</span></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
                         <!--  Google+  -->
-                        <span class="g-plus" data-action="share" data-annotation="none" data-href="http://placeandcity.com/engagingeographies/"></span> 
+                        <!-- <span class="g-plus" data-action="share" data-annotation="none" data-href="http://placeandcity.com/engagingeographies/"></span>  -->
                     </div>
                     <h3 style="margin-top: 50px; text-align: center;">
                         <span langkey="global6">Até à próxima :)</span>
@@ -187,6 +192,7 @@
                     <div class="no-float"></div>
                     <hr>
                     <div style="text-align: center;">
+                        <img src="img/Place and City.png" id="logo_place">
                         <img src="img/camara.jpeg" id="logo_camara">
                         <img src="img/geoc.png" id="logo_geoc">
                         <img src="img/mariecurie.png" id="logo_marie">
@@ -362,6 +368,8 @@
 <script src="js/leaflet.js"></script>
 <script src="js/leaflet-src.js"></script>
 <script src="js/leaflet.draw.js"></script>
+<script src="js/leaflet-search-geocoder.js"></script>
+<script src="js/leaflet-search.js"></script>
 <script src="js/bootstrap-slider.js"></script>
 
 

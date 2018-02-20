@@ -1,6 +1,13 @@
 @charset "UTF-8";
 /* CSS Document General */
 
+#logo_place{
+	width: 80px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
 #logo_camara{
 	width: 60px;
 	margin-bottom: 20px;
@@ -42,4 +49,9 @@
 /* Radios */
 .radio-inline input[type="radio"]{
 	position: relative;
+}
+
+/* Search leaflet */
+.leaflet-container .leaflet-control-search {
+    color: #0a0a0b !important;
 }
