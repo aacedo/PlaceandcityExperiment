@@ -491,6 +491,14 @@
 
 <script>
     $( document ).ready(function() {
+
+			firebase.initializeApp({
+				apiKey: "AIzaSyBwgs-qsN_KmDtp2VeI6dhSoylkzJaexcM",
+				authDomain: "experiment-9e514.firebaseapp.com",
+				projectId: "experiment-9e514"
+			});
+			db = firebase.firestore();
+
         var savedStrData = util.getFromLocalStorage(util.interPageDataKey);
         id = savedStrData.id;
         if(!id){
