@@ -291,9 +291,11 @@ appHelper = {
 	obtainCE: function (doc) {
 		var geoJson = appHelper.getEmptyGeoJson();
 		var areas = doc.CE.areas;
-		for (var i = 0; i < areas.length; i++) {
-			var other = JSON.parse(areas[i].layer);
-			geoJson.features = geoJson.features.concat(other.features);
+		if(areas) {
+			for (var i = 0; i < areas.length; i++) {
+				var other = JSON.parse(areas[i].layer);
+				geoJson.features = geoJson.features.concat(other.features);
+			}
 		}
 		return geoJson;
 	},
