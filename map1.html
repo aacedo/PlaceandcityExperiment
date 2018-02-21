@@ -986,6 +986,7 @@
             // Big Map
             var map1 = L.map('map', {
                 scrollWheelZoom: false,
+                dragging: false,
             });
             map1.on('load', function (e) {
                 if (isElementInViewport($('#map'))) {
@@ -997,6 +998,7 @@
             // Small Map
             var mapxs = L.map('map2', {
                 scrollWheelZoom: false,
+                dragging: false,
             });
             mapxs.on('load', function (e) {
                 if (isElementInViewport($('#map2'))) {

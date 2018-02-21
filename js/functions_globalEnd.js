@@ -270,6 +270,7 @@ function startMapComponents() {
 
         var map1 = L.map('map', {
             scrollWheelZoom: false,
+            dragging: false,
         });
         map1.on('load', function (e) {
             if (isElementInViewport($('#map'))) {
@@ -278,7 +279,10 @@ function startMapComponents() {
         });
         map1.setView([38.7500, -9.1500], 12);
 
-        var mapxs = L.map('map2');
+        var mapxs = L.map('map2', {
+            scrollWheelZoom: false,
+            dragging: false,
+        });
         mapxs.on('load', function (e) {
             if (isElementInViewport($('#map2'))) {
                 createAll(mapxs);
