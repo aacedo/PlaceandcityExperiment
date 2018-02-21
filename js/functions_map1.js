@@ -137,15 +137,44 @@ function startAll() {
         $("#title_sliders_change").html(translator.getKeyLanguageValue("map1-20"));
         var replaced3 = $("#title_sliders_change").html().replace('hola', '<b style="font-size: 18px">' + tete + '</b>');
         $("#title_sliders_change").html(replaced3);
+        $("#textchange_reason").html(translator.getKeyLanguageValue("map2-58"));
+        var replaced4 = $("#textchange_reason").html().replace('hola', '<b style="font-size: 18px">' + tete + '</b>');
+        $("#textchange_reason").html(replaced4);
 
     };
 
     $('#sliders_done_button').click(function () {
 
+
+        var reasonvalue;
         var naturevalidation = $('[name=na1]:checked,[name=na2]:checked,[name=na3]:checked,[name=na4]:checked');
         if (naturevalidation.length < 4) {
             alert(translator.getKeyLanguageValue("general5"));
             return;
+        }
+
+        if ($("#reason").val() == "5") {
+            if (!$("#other_reason").val()) {
+                // alert("Please, introduce the nature of the group.")
+                alert(translator.getKeyLanguageValue("general22"));
+                return;
+
+            }
+            else {
+                reasonvalue = $('#other_reason').val();
+
+            }
+        }
+
+        else if ($("#reason").val() == "0"){
+
+            alert(translator.getKeyLanguageValue("general22"));
+            return;
+        }
+        else {
+
+            reasonvalue = $('#reason').val();
+
         }
 
         if (number == name_places.length - 1) {
@@ -156,6 +185,7 @@ function startAll() {
                 name: name_places[number],
                 layer: L.geoJson(drawnItems.toGeoJSON()),
                 livingIn: ($("input[name=live]:checked").val()) === 'true',
+                reason: reasonvalue,
                 predictors: {
                     na1: parseInt($("input[name=na1]:checked").val()),
                     na2: parseInt($("input[name=na2]:checked").val()),
@@ -178,6 +208,10 @@ function startAll() {
             $('#button-freguesiaxs').prop('disabled', true);
 
 
+            $("#reason").val("0");
+
+
+
         }
 
         else {
@@ -198,6 +232,7 @@ function startAll() {
                 name: name_places[number],
                 layer: L.geoJson(drawnItems.toGeoJSON()),
                 livingIn: ($("input[name=live]:checked").val()) === 'true',
+                reason: reasonvalue,
                 predictors: {
                     na1: parseInt($("input[name=na1]:checked").val()),
                     na2: parseInt($("input[name=na2]:checked").val()),
@@ -217,10 +252,7 @@ function startAll() {
              $('span[id=ex' + i + 'SliderVal]').text(0);
              };
              */
-            $("input[name=na1]").prop('checked', false);
-            $("input[name=na2]").prop('checked', false);
-            $("input[name=na3]").prop('checked', false);
-            $("input[name=na4]").prop('checked', false);
+
 
 
             SOP.push(polygonData);
@@ -232,9 +264,31 @@ function startAll() {
             buttonDelete.prop('disabled', true);
             buttonDraw.prop('disabled', false);
 
+            $("#reason").val("0");
+
+            $("#other_name_reason").removeClass().addClass("hidden");
+
+            $("#other_name_reason").val("");
+
+            $("input[name=na1]").prop('checked', false);
+            $("input[name=na2]").prop('checked', false);
+            $("input[name=na3]").prop('checked', false);
+            $("input[name=na4]").prop('checked', false);
+
+
         }
 
 
+    });
+
+    $('#reason').change(function () {
+        if ($("#reason").val() == "5") {
+
+            $("#other_name_reason").removeClass().addClass("show");
+        }
+        else {
+            $("#other_name_reason").removeClass().addClass("hidden");
+        }
     });
 
     //var AreaSelected;

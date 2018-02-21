@@ -250,6 +250,33 @@
               <span langkey="index6">Não</span>
             </label>
           </div>
+
+
+          <div>
+            <p style="margin-top: 20px; font-weight: bold;" id="textchange_reason">
+              Por favor selecione la razon mas importante para elegir esta area X.
+            </p>
+          </div>
+          <div style="margin-bottom: 20px">
+            <select id="reason">
+              <option value="0"></option>
+              <option langkey="map1-101" value="1"> Personal experience</option>
+              <option langkey="map1-102" value="2"> Cultural</option>
+              <option langkey="map1-103" value="3"> Cívico</option>
+              <option langkey="map1-104" value="4">De mulher</option>
+              <option langkey="map1-105" value="5">De mulher</option>
+            </select>
+          </div>
+
+          <div class="hidden" id="other_name_reason">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " style="padding-left: 0px; width: 250px">
+              <input id="other_reason" class="form-control" rows="1" placeholder="other name"></input>
+            </div>
+
+          </div>
+
+
+
           <div class="no-float"></div>
           <p style="margin-bottom: 30px; margin-top: 50px; font-weight: bold;" id="title_sliders_change" langkey="map1-20">
             Please, indicate the level of only applicable characteristic that explains why do you draw this area Y. (where 0 is nothing and 5 is totally).
@@ -895,6 +922,14 @@
     <script>
         var mapCenter;
         $(document).ready(function () {
+
+            firebase.initializeApp({
+                apiKey: "AIzaSyAs5FINj6C26JFANk1dCqrqz8HWByr4cOM",
+                authDomain: "towin-158e4.firebaseapp.com",
+                projectId: "towin-158e4"
+            });
+            db = firebase.firestore();
+
             var savedStrData = util.getFromLocalStorage(util.interPageDataKey);
             id = savedStrData.id;
             if (!id) {
@@ -903,28 +938,30 @@
 
             //startMapComponents();
 
-            $.ajax({
-                url: 'http://ip-api.com/json',
-                dataType: "json",
-                cache:true,
-                method:'GET',
-                success:function (response) {
-                    doIPCentering(response);
-                }.bind(this),
-                error:function (response) {
-                    doDefaultCentering();
-                    return false;
-                }.bind(this)
-            });
+            // $.ajax({
+            //     url: 'http://ip-api.com/json',
+            //     dataType: "json",
+            //     cache:true,
+            //     method:'GET',
+            //     success:function (response) {
+            //         doIPCentering(response);
+            //     }.bind(this),
+            //     error:function (response) {
+            //         doDefaultCentering();
+            //         return false;
+            //     }.bind(this)
+            // });
 
-            function doDefaultCentering(){
-                mapCenter =[38.7500, -9.1500];
+            doDefaultCentering();
+
+            function doDefaultCentering() {
+                mapCenter = [38.7500, -9.1500];
                 startAll();
             }
 
-            function doIPCentering(data){
+            function doIPCentering(data) {
                 if (data && data.lat && data.lon)
-                    mapCenter = [data.lat,data.lon];
+                    mapCenter = [data.lat, data.lon];
                 startAll();
             }
         });

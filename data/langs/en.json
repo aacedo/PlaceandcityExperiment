@@ -1,5 +1,5 @@
 {
-  "index1": "The following web-map survey is part of a research project at NOVA IMS (Lisbon). Its primary objective is to understand how citizens' place perceptions, and their relationships, influence participation in a given urban area.",
+  "index1": "Dear colleagues,first of all, I want to thank you to answer the questionnaires till today. Now, is the last step (I promise 🤗 ). The following web-map survey is part of my research and the last move of your contribution into the experiment: the ladder of belonging. ",
   "index2": "The questionnaire will take less than 5 minutes, and the mapping activity takes most people around 10 minutes, depending on how many areas you define.",
   "index2a": "Answers ",
   "index2b": " nº 200, nº 500 and nº 1000, will be provided with a gift card of 50,00€. If you want to be eligible for a prize, you should provide your email at the end of the survey, so we can contact you in case you won.",
@@ -130,7 +130,11 @@
   "map1-99":"You can add as many areas as you want. When you finish to add them, click on button ",
   "map1-100":"Add another word that define another area",
 
-
+  "map1-101":"Personal Experience (memories, meanings, attitudes, etc.)",
+  "map1-102":"Socio-cultural (friends, cultura, shops, religious aspects, study areas, etc.)",
+  "map1-103":"Physical attributes and features (environment, monuments, landmarks, etc.)",
+  "map1-104":"Usability (sport, daily actions, recreational places, etc.)",
+  "map1-105":"Other",
 
 
 
@@ -195,6 +199,8 @@
   "map2-55":"Have you attended a group (Y) meeting in the last 12 months?",
   "map2-56":"How often do you participate in the activities of the group (Y) in the last 12 months?",
   "map2-57":"To what extent did you participate in group (Y) decision-making in the last 12 months?",
+  "map2-58":"Please, select the most important reason that define this area hola",
+
 
 
   "map2-95":"Please:",
@@ -300,6 +306,8 @@
   "general19":"Group",
   "general20":"or",
   "general21":"Understood",
+  "general22":"Please, insert the reason.",
+
 
 
 

@@ -1,5 +1,5 @@
 {
-  "index1": "Este cuestionario es parte de un proyecto de investigación de la universidad NOVA (Lisboa). El principal objetivo del estudio es comprender como las percepciones de los ciudadanos y sus relaciones sociales, influyen en la participación pública en un contexto urbano.",
+  "index1": "Queridos compañeros, ante todo, quiero agradeceros todas las respuestas que habéis ido dando a los cuestionarios proporcionados. Este es el último (lo prometo 🤗 ). El siguiente cuestionario es parte de mi investigación y responderlo, vuestra última contribución al experimento: la escalera de pertenecia. ",
   "index2": "Responder el cuestionario se tarda menos de 5 minutos y la actividad de dibujo le lleva a la mayoría de la gente unos 10 minutos, dependiendo del número de áreas a definir.",
   "index2a": "Las respuestas ",
   "index2b": " nº 200, nº 500 y nº 1000 serán premiadas con un vale regalo de 50,00€. Para poder disfrutar el vale debe darnos su mail en el campo disponible al final de la encuesta.",
@@ -132,6 +132,13 @@
   "map1-100":"Añade otra palabra que defina otra área",
 
 
+  "map1-101":"Experiencia personal (memorias, significados, actitudes, etc.)",
+  "map1-102":"Socio-cultural (amigos, cultura, tiendas, aspectos religiosos, enseñanza, etc.)",
+  "map1-103":"Atributos físicos y características (medio ambiente, monumentos, etc.)",
+  "map1-104":"Usabilidad (deportes, acciones diarias, lugares de recreo, etc.)",
+  "map1-105":"Otros",
+
+
 
   "map2-1":"También nos gustaría preguntarte sobre los grupos de personas u organizaciones a los que perteneces. Éstos pueden ser formalmente organizados (religiosos, familiares, deportivos, trabajo...) o simplemente grupos de personas con las que haces actividades regularmente o hablas sobre temas.",
   "map2-2":"¿Puedes escribir (una o más) palabras que definan cada grupo? Por favor piensa en un grupo y escribe en la caja de texto abajo una o más palabras que definan el grupo, luego clica en “Añadir grupo”. Puedes añadir tantos grupos como quieras. Tómate tu tiempo. :)",
@@ -194,6 +201,8 @@
   "map2-55":"¿Has atendido alguna reunión del grupo Y en los últimos 12 meses?",
   "map2-56":"¿Con qué frecuencia has participado en las actividades del grupo Y en los últimos 12 meses?",
   "map2-57":"¿Con qué frecuencia has participado en las decisiones del grupo Y en los últimos 12 meses?",
+  "map2-58":"Por favor, seleccione la razón más importante para definir esta area hola",
+
 
 
   "map2-95":"Por favor:",
@@ -293,6 +302,9 @@
   "general18":"Área",
   "general19":"Grupo",
   "general20":"o",
+  "general21":"Entendido",
+  "general22":"Por favor, inserte la razón.",
+
 
 
 

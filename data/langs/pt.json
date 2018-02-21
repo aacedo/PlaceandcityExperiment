@@ -1,5 +1,5 @@
 {
-  "index1": "Este questionário é parte integrante de um projeto de investigação da Nova Information Management School (NOVA IMS) da Universidade Nova de Lisboa. O objetivo principal é perceber a forma como a perceção do local e as relações sociais do cidadão influenciam a sua participação numa dada área urbana.",
+  "index1": "Caros colegas, antes de mais, gostaria de agradecer a vossa participação no questionário até ao dia de hoje. Asseguro que este será o último passo. O seguinte web-map survey faz parte da minha investigação e é a última parte da vossa contribuição nesta experiência: the ladder of belonging.",
   "index2": "O preenchimento do questionário demora cerca de 5 minutos e a atividade de mapeamento cerca de 10 minutos, dependendo do número de áreas que se pretenderem assinalar.",
   "index2a": "Às submissões",
   "index2b": " nº 200, nº 500 e nº 1000 será oferecido um cartão oferta no montante de 50,00€. Para se habilitar a esta oferta tem de fornecer o seu email no campo disponível no final do inquérito.",
@@ -136,6 +136,13 @@
   "map1-100":"Adicione mais uma palavra para definir outra área",
 
 
+  "map1-101":"Experiência Pessoal (recordações, significados, atitudes, etc.)",
+  "map1-102":"Socioculturais (amigos, cultura, lojas, questões religiosas, áreas de estudo, etc.)",
+  "map1-103":"Atributos e características físicas (meio ambiente, monumentos, etc.)",
+  "map1-104":"Usabilidade (desporto, atividades diárias, espaços de lazer, etc.)",
+  "map1-105":"Outro",
+
+
 
 
   "map2-1":"Gostaria também de lhe perguntar sobre grupos de pessoas ou organizações, redes ou associações a que pertença. Podem ser grupos formalmente organizados (grupos religiosos, de familiares, desportivos, de local de trabalho... ) or pura e simplesmente grupos de pessoas que se juntam regularmente para realizar uma atividade ou falar sobre vários assuntos.",
@@ -198,6 +205,9 @@
   "map2-55":"Nos últimos 12 meses participou nalguma reunião do grupo Y?",
   "map2-56":"Com que frequência participou nas atividades do grupo Y nos últimos 12 meses?",
   "map2-57":"Até que ponto participou no processo de decisão do grupo Y nos últimos 12 meses?",
+  "map2-58":"Por favor selecione a razão mais importante que define esta área hola",
+
+
 
 
 
@@ -304,6 +314,8 @@
   "general19":"Grupo",
   "general20":"ou",
   "general21":"Entendido",
+  "general22":"Por favor, introduza a razão",
+
 
 
 
