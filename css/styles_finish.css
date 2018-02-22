@@ -50,8 +50,3 @@
 .radio-inline input[type="radio"]{
 	position: relative;
 }
-
-/* Search leaflet */
-.leaflet-container .leaflet-control-search {
-    color: #0a0a0b !important;
-}
