@@ -1109,7 +1109,6 @@
         // Big Map
         var map1 = L.map('map', {
             scrollWheelZoom: false,
-            dragging: false,
         });
         map1.on('load', function (e) {
             if (isElementInViewport($('#map'))) {
@@ -1119,10 +1118,7 @@
         map1.setView(mapCenter, 12);
 
         // Small Map
-        var mapxs = L.map('map2', {
-                scrollWheelZoom: false,
-                dragging: false,
-            });
+        var mapxs = L.map('map2');
         mapxs.on('load', function (e) {
             if (isElementInViewport($('#map2'))) {
                 createAll(mapxs, $("#draw_polyxs"), $("#delete_polyxs"));
