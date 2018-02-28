@@ -210,6 +210,9 @@ function startAll() {
 
             $("#reason").val("0");
 
+            $("#other_name_reason").val("");
+
+
 
 
         }
