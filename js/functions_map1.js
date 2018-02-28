@@ -7,7 +7,7 @@ var number = 0;
 var name_places = [];
 var SOP = [];
 var current_name = [];
-var contador=0;
+var contador = 0;
 
 
 function startAll() {
@@ -16,7 +16,7 @@ function startAll() {
 
     $(function () {
         $('[data-toggle="popover"]').popover()
-    })
+    });
 
 // MODAL prev and next
 
@@ -48,23 +48,20 @@ function startAll() {
 
     //
 
-    $('#plus_name').click(function () { 
-        if (!$('#actual_place').val() && (name_places.length == 0)){ 
-            alert(translator.getKeyLanguageValue("general4")); 
-        } 
-        else if (!$('#actual_place').val() && (name_places.length > 0)) { 
-            $("#continuar").removeClass("hidden").addClass("show"); 
-        } 
-        else{ 
-            name_places.push($('#actual_place').val()); 
-            $('#actual_place').val(""); 
-            names(); 
-            contador=0; 
+    $('#plus_name').click(function () {
+        if (!$('#actual_place').val() && (name_places.length === 0)) {
+            alert(translator.getKeyLanguageValue("general4"));
         }
-      });
-
-
-
+        else if (!$('#actual_place').val() && (name_places.length > 0)) {
+            $("#continuar").removeClass("hidden").addClass("show");
+        }
+        else {
+            name_places.push($('#actual_place').val());
+            $('#actual_place').val("");
+            names();
+            contador = 0;
+        }
+    });
 
 
     function names() {
@@ -82,10 +79,10 @@ function startAll() {
     }
 
 
-    $( "#actual_place" ).keypress(function( event ) {
+    $("#actual_place").keypress(function (event) {
 
-        if (!$('#actual_place').val()){
-            if (contador==0){
+        if (!$('#actual_place').val()) {
+            if (contador === 0) {
                 $("#continuar").removeClass("show").addClass("hidden");
             }
             else {
@@ -96,7 +93,6 @@ function startAll() {
             $("#continuar").removeClass("show").addClass("hidden");
         }
     });
-
 
 
     $('#submit_name_places').click(function () {
@@ -153,7 +149,7 @@ function startAll() {
             return;
         }
 
-        if ($("#reason").val() == "5") {
+        if ($("#reason").val() === "5") {
             if (!$("#other_reason").val()) {
                 // alert("Please, introduce the nature of the group.")
                 alert(translator.getKeyLanguageValue("general22"));
@@ -166,7 +162,7 @@ function startAll() {
             }
         }
 
-        else if ($("#reason").val() == "0"){
+        else if ($("#reason").val() === "0") {
 
             alert(translator.getKeyLanguageValue("general22"));
             return;
@@ -210,9 +206,7 @@ function startAll() {
 
             $("#reason").val("0");
 
-            $("#other_name_reason").val("");
-
-
+            $("#other_reason").val("");
 
 
         }
@@ -257,7 +251,6 @@ function startAll() {
              */
 
 
-
             SOP.push(polygonData);
             map.removeLayer(drawnItems);
             drawnItems = new L.FeatureGroup();
@@ -271,7 +264,7 @@ function startAll() {
 
             $("#other_name_reason").removeClass().addClass("hidden");
 
-            $("#other_name_reason").val("");
+            $("#other_reason").val("");
 
             $("input[name=na1]").prop('checked', false);
             $("input[name=na2]").prop('checked', false);
@@ -285,7 +278,7 @@ function startAll() {
     });
 
     $('#reason').change(function () {
-        if ($("#reason").val() == "5") {
+        if ($("#reason").val() === "5") {
 
             $("#other_name_reason").removeClass().addClass("show");
         }
@@ -419,7 +412,7 @@ function startAll() {
             else {
                 util.redirectToPage({
                     url: "map2.html",
-                    payload:  {id:response.id, center: mapCenter}
+                    payload: {id: response.id, center: mapCenter}
                 });
             }
         });
